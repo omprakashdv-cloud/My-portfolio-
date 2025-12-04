@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Omprakash D V — Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f1722;
+      --card: #0b1220;
+      --muted: #94a3b8;
+      --accent: #06b6a4;
+      --accent-2: #7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --text: #e6eef6;
+      --glass-2: rgba(255,255,255,0.02);
+      --shadow: 0 8px 30px rgba(2,6,23,0.6);
+      --radius: 14px;
+      --container: 1100px;
+    }
+
+    :root[data-theme="light"]{
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --muted: #475569;
+      --accent: #0b7d6e;
+      --accent-2: #6b21a8;
+      --glass: rgba(11,29,46,0.04);
+      --glass-2: rgba(2,6,23,0.02);
+      --text: #06202b;
+      --shadow: 0 10px 30px rgba(11,29,46,0.08);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth;}
+
+    body{
+      margin:0;
+      font-family: Inter, sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 50%, #000 100%);
+      color:var(--text);
+      line-height:1.5;
+      padding-bottom:80px;
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .6s ease, transform .6s ease;
+    }
+    body.ready{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .wrap{max-width:var(--container);margin:36px auto;padding:0 20px;}
+
+    /* HEADER */
+    header{
+      position:sticky;top:16px;
+      background:rgba(15,23,42,0.75);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;border-radius:16px;
+      backdrop-filter: blur(16px);
+      border:1px solid rgba(148,163,184,0.16);
+      box-shadow:var(--shadow);
+      z-index:50;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:16px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:white;font-weight:800;
+      display:flex;align-items:center;justify-content:center;
+      font-family:"Playfair Display",serif;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:18px;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .controls{display:flex;gap:12px;align-items:center}
+
+    .theme-toggle{
+      border:1px solid rgba(148,163,184,0.4);
+      background:transparent;
+      padding:8px;
+      border-radius:50%;
+      cursor:pointer;
+      color:var(--text);
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;gap:20px;
+      padding:28px;margin-top:28px;
+      background:rgba(255,255,255,0.03);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .intro h2{
+      font-size:34px;
+      font-family:"Playfair Display",serif;
+      margin:0;
+    }
+    .intro p{
+      max-width:60ch;
+      color:var(--muted);
+      margin-top:12px;
+    }
+
+    .btn{
+      padding:10px 16px;border-radius:12px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;text-decoration:none;font-weight:700;
+      display:inline-flex;gap:10px;align-items:center;
+    }
+    .ghost{
+      border:1px solid rgba(255,255,255,0.25);
+      background:transparent;color:white;
+      padding:10px 16px;border-radius:12px;
+      text-decoration:none;font-weight:600;
+    }
+
+    .profile{
+      padding:20px;border-radius:20px;
+      background:var(--card);
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .avatar{
+      width:110px;height:110px;border-radius:20px;
+      background:url('profilephoto.jpg') center/cover;
+      border:4px solid rgba(255,255,255,0.25);
+    }
+
+    .chip{
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.25);
+      font-size:13px;
+    }
+
+    .reveal{opacity:0;transform:translateY(18px);transition:.7s}
+    .reveal.show{opacity:1;transform:translateY(0)}
+
+    .card{
+      background:var(--card);
+      padding:20px;
+      margin-top:20px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:var(--shadow);
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+<div class="wrap">
+
+<header class="reveal">
+  <div class="brand">
+    <div class="logo">OD</div>
+    <div>
+      <h1 style="margin:0">Omprakash D V</h1>
+      <div class="small muted">Computer Science Student • Web Developer</div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="controls">
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <a class="btn" href="Omprakash_Resume.pdf" download>Download Resume</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero reveal">
+  <div class="intro">
+    <h2>Hello — I'm <span style="color:var(--accent)">Omprakash</span></h2>
+    <p>
+      I am passionate about developing clean and responsive web interfaces
+      using HTML, CSS and JavaScript. I enjoy front-end development and
+      learning new tools in UI design.
+    </p>
+
+    <a class="btn" href="#projects">See Projects</a>
+    <a class="ghost" href="#contact">Hire Me</a>
+
+    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+      <div class="chip">HTML</div>
+      <div class="chip">CSS</div>
+      <div class="chip">JavaScript</div>
+      <div class="chip">Responsive Design</div>
+      <div class="chip">Git & GitHub</div>
+      <div class="chip">C / Java</div>
+    </div>
+  </div>
+
+  <div class="profile">
+    <div class="avatar"></div>
+    <h3>Omprakash D V</h3>
+    <p class="small muted">Web Developer • India</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <h2>About Me</h2>
+  <p>
+    I am a Computer Science student focused on building clean, accessible,
+    and mobile-friendly websites. I enjoy working on front-end projects and
+    practicing core concepts such as DOM manipulation, events, forms and
+    browser storage.
+  </p>
+
+  <p><strong>Location:</strong> India</p>
+  <p><strong>Email:</strong> omprakash@example.com</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <h2>Skills & Technologies</h2>
+  <p class="muted">Technologies I use frequently include:</p>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+    <div class="chip">HTML5</div>
+    <div class="chip">CSS3</div>
+    <div class="chip">JavaScript</div>
+    <div class="chip">Responsive Design</div>
+    <div class="chip">Git & GitHub</div>
+    <div class="chip">Bootstrap</div>
+    <div class="chip">Tailwind (Basic)</div>
+    <div class="chip">Node.js (Basic)</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Responsive Portfolio Website</h3>
+    <p class="muted">
+      A modern, animated portfolio website built using HTML, CSS and JS.
+      Includes light/dark mode and responsive layout.
+    </p>
+    <a class="ghost" href="#">View</a>
+    <a class="ghost" href="#">Source</a>
+  </div>
+
+  <div class="card">
+    <h3>Task Manager UI</h3>
+    <p class="muted">
+      A simple task manager using JavaScript and LocalStorage.
+    </p>
+    <a class="ghost" href="#">View</a>
+    <a class="ghost" href="#">Source</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <h2>Contact Me</h2>
+  <p class="muted">
+    Feel free to reach out for internships or project opportunities.
+  </p>
+
+  <form id="contactForm" onsubmit="return handleContact(event)">
+    <input id="name" placeholder="Full Name" required>
+    <input id="email" type="email" placeholder="Email" required>
+    <textarea id="message" placeholder="Message" required></textarea>
+
+    <button class="btn" type="submit">Send Message</button>
+    <button class="ghost" type="reset">Reset</button>
+
+    <div id="formStatus" class="muted small" style="margin-top:10px"></div>
+  </form>
+</section>
+
+<footer class="reveal" style="text-align:center;margin-top:30px;color:var(--muted)">
+  © <span id="year"></span> Omprakash — Portfolio Project
+</footer>
+
+</div>
+
+<script>
+  // Theme Toggle
+  const themeToggle = document.getElementById("themeToggle");
+
+  themeToggle.addEventListener("click", () => {
+    const theme = document.body.dataset.theme === "dark" ? "light" : "dark";
+    document.body.dataset.theme = theme;
+    themeToggle.textContent = theme === "dark" ? "🌙" : "☀️";
+    localStorage.setItem("theme", theme);
+  });
+
+  // Load Theme
+  (function () {
+    const saved = localStorage.getItem("theme") || "dark";
+    document.body.dataset.theme = saved;
+    themeToggle.textContent = saved === "dark" ? "🌙" : "☀️";
+    requestAnimationFrame(() => document.body.classList.add("ready"));
+  })();
+
+  // Reveal Animation
+  const reveals = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
+    });
+  });
+  reveals.forEach((r) => io.observe(r));
+
+  // Contact Mail Handler
+  function handleContact(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const msg = document.getElementById("message").value.trim();
+    const status = document.getElementById("formStatus");
+
+    if (!name || !email || !msg) {
+      status.textContent = "Please fill all fields.";
+      return false;
+    }
+
+    const mail = `mailto:omprakash@example.com?subject=Message from ${name}&body=${encodeURIComponent(msg)}%0A%0A— ${name} (${email})`;
+
+    window.location.href = mail;
+    status.textContent = "Opening email app...";
+
+    return false;
+  }
+
+  // Footer Year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
