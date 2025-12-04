@@ -134,9 +134,12 @@
       box-shadow:var(--shadow);
     }
 
+    /* UPDATED: IMG TAG STYLE */
     .avatar{
-      width:110px;height:110px;border-radius:20px;
-      background:url('profile.jpg') center/cover;
+      width:110px;
+      height:110px;
+      border-radius:20px;
+      object-fit:cover;
       border:4px solid rgba(255,255,255,0.25);
     }
 
@@ -209,7 +212,8 @@
   </div>
 
   <div class="profile">
-    <div class="avatar"></div>
+    <!-- UPDATED: USING IMG TAG -->
+    <img src="profile.jpg" alt="Omprakash D V" class="avatar">
     <h3>Omprakash D V</h3>
     <p class="small muted">Web Developer • India</p>
   </div>
@@ -350,4 +354,4 @@
 </script>
 
 </body>
-</html>
+  </html>
